@@ -324,7 +324,8 @@ class LambdaFunction(BaseModel):
                             if docker_3:
                                 exit_code = exit_code['StatusCode']
 
-                        #output = container.logs(stdout=False, stderr=True)
+                        logs = container.logs(stdout=False, stderr=True)
+                        print(logs.decode('utf-8'))
                         output = container.logs(stdout=True, stderr=False)
                         container.remove()
 
